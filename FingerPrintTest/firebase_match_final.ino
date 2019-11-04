@@ -1,12 +1,23 @@
-#include <ESP8266WiFi.h>
-#include <FirebaseArduino.h>
-#include <Adafruit_Fingerprint.h>
-#include <SoftwareSerial.h>
+/*
+ * Open source project CLOUDMED
+ * Started by mayank srivastava, k. prudhvi, v.vamsi krishna 
+ * Finger print verification
+ * To send the the enrolled finger prints to fire base
+ * We can't extract the finger print image from the sensor as it gives output in bmp code formate
+ * We can save upto 200 different fingers in the sensor. 
+ * To delete the database use the examples of adafruit fingerprint library
+ * Please do update any improvements / errors in git 
+ */
 
-#define FIREBASE_HOST "medidatanew.firebaseio.com"  // appdata base
-#define FIREBASE_AUTH "kWPFyPsuVScvDQdJEdcA8C9wvKjksuydqxm0J4mW"
-#define WIFI_SSID "don't look here"
-#define WIFI_PASSWORD "asdfghjklp"
+#include <ESP8266WiFi.h>    //for node mcu
+#include <FirebaseArduino.h> // to connect node mcu and firebase
+#include <Adafruit_Fingerprint.h> // for connecting the fingerprint sensor 
+#include <SoftwareSerial.h> // for serial communication
+
+#define FIREBASE_HOST "hacksumitaaruush.firebaseio.com"  // appdata base
+#define FIREBASE_AUTH "***************************" // copy the secret code from the service account settings in firebase
+#define WIFI_SSID "wifi id" // enter the wifi address
+#define WIFI_PASSWORD "password" // enter it's password 
 
 
 uint8_t getFingerprintEnroll(int id);
